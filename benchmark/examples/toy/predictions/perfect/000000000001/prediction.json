@@ -1,0 +1,32 @@
+{
+  "schema": "cocotree_prediction_v1",
+  "image_id": 1,
+  "method": {
+    "name": "toy-perfect",
+    "uses_cocotree_reference_during_inference": false
+  },
+  "nodes": [
+    {
+      "instance_id": "pred_vehicle_1",
+      "semantic_id": "pred_vehicle",
+      "label": "car",
+      "parent_instance_id": "ROOT",
+      "parent_semantic_id": "ROOT",
+      "segmentation": {
+        "size": [4, 4],
+        "counts": [0, 8, 8]
+      }
+    },
+    {
+      "instance_id": "pred_wheel_1",
+      "semantic_id": "pred_wheel",
+      "label": "wheel",
+      "parent_instance_id": "pred_vehicle_1",
+      "parent_semantic_id": "pred_vehicle",
+      "segmentation": {
+        "size": [4, 4],
+        "counts": [2, 2, 12]
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "schema": "cocotree_strict1k_adapter_regression_v1",
+  "verified_at": "2026-07-28",
+  "split": "cocotree_1k_v1",
+  "split_manifest_sha256": "49cc2f0ab1c54a01a02be27e48987fde7487946bc49b5069f10ad600b27466ef",
+  "images": 1000,
+  "all_instance_masks": 84117,
+  "plain_others_masks": 997,
+  "otq_scored_masks": 83120,
+  "hpq_semantic_nodes_paper_legacy": 26121,
+  "conversion_missing_images": 0
+}
+

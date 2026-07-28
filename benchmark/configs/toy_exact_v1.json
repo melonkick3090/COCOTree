@@ -1,0 +1,44 @@
+{
+  "schema": "cocotree_metric_protocol_v1",
+  "protocol_id": "toy_exact_v1",
+  "description": "Offline smoke-test protocol. Do not report as the paper setting.",
+  "mask_iou_threshold": 0.5,
+  "hpq_match_threshold": 0.5,
+  "depth_scopes": [1, 2, 3, "all"],
+  "synthetic_instance_root": "ROOT",
+  "synthetic_semantic_root": "ROOT",
+  "otq_excluded_normalized_labels": ["others"],
+  "hpq_excluded_normalized_labels": [],
+  "hpq_others_policy": "keep_top_bucket_promote_direct_children",
+  "instance_parent_policy": "submitted",
+  "bq_empty_pair_accuracy": 1.0,
+  "missing_prediction_policy": "empty",
+  "extra_prediction_policy": "error",
+  "invalid_prediction_policy": "error",
+  "aggregation": "macro_image_mean",
+  "label_similarity": {
+    "backend": "exact",
+    "template": "{label}"
+  },
+  "matching": {
+    "unit": "instance_mask_node",
+    "assignment": "global_hungarian_max_iou",
+    "below_threshold_assignment": "one_fp_and_one_fn",
+    "tie_policy": "stable_input_order"
+  },
+  "otq": {
+    "mq": "mean_tp_mask_iou",
+    "lq": "mean_tp_label_similarity",
+    "mean_nq": "mean_tp_mask_iou_times_label_similarity",
+    "bq": "matched_skeleton_pairwise_lca_accuracy",
+    "recovery": "tp_over_tp_plus_half_fp_plus_half_fn",
+    "tq": "bq_times_recovery",
+    "otq": "tq_times_mean_nq"
+  },
+  "hpq": {
+    "label_matching": "exact_normalized",
+    "leaf_score": "mean_hungarian_instance_iou",
+    "recursive_grouping": "children_by_exact_label",
+    "class_aggregation": "unweighted_mean_over_active_labels"
+  }
+}

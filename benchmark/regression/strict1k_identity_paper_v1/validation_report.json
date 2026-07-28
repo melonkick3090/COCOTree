@@ -1,0 +1,13 @@
+{
+  "empty_or_missing_images": 0,
+  "extra_images": [],
+  "ground_truth_images": 1000,
+  "invalid_predictions": [],
+  "missing_images": [],
+  "provided_images": 1000,
+  "requested_images": 1000,
+  "source": "/tmp/cocotree_benchmark_release_final_20260728_v2/reference/cocotree_1k_v1.jsonl.gz",
+  "source_sha256": "94c36e9e2f25e9c38d1684e73b5f3645280a2e55168ed23e182fd4745ccf26a9",
+  "status": "pass",
+  "valid_nonempty_images": 1000
+}

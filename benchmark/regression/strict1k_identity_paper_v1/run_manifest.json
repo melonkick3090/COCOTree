@@ -1,0 +1,88 @@
+{
+  "benchmark_version": "0.1.0",
+  "created_at_utc": "2026-07-28T10:49:31+00:00",
+  "dependencies": {
+    "huggingface-hub": "1.21.0",
+    "numpy": "1.26.4",
+    "pycocotools": "2.0.11",
+    "scipy": "1.16.3",
+    "sentence-transformers": "5.4.1",
+    "torch": "2.13.0.dev20260423+cu130",
+    "transformers": "5.6.2"
+  },
+  "elapsed_seconds": 206.2783153380151,
+  "ground_truth": "/tmp/cocotree_benchmark_release_final_20260728_v2/reference/cocotree_1k_v1.jsonl.gz",
+  "ground_truth_scored_artifact": "/tmp/cocotree_benchmark_release_final_20260728_v2/reference/cocotree_1k_v1.jsonl.gz",
+  "ground_truth_sha256": "94c36e9e2f25e9c38d1684e73b5f3645280a2e55168ed23e182fd4745ccf26a9",
+  "label_device": "cpu",
+  "num_manifest_images": 1000,
+  "output_dir": "/tmp/cocotree_benchmark_reference_identity_final_20260728",
+  "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+  "predictions": "/tmp/cocotree_benchmark_release_final_20260728_v2/reference/cocotree_1k_v1.jsonl.gz",
+  "predictions_sha256": "94c36e9e2f25e9c38d1684e73b5f3645280a2e55168ed23e182fd4745ccf26a9",
+  "protocol": {
+    "aggregation": "macro_image_mean",
+    "bq_empty_pair_accuracy": 1.0,
+    "depth_scopes": [
+      1,
+      2,
+      3,
+      "all"
+    ],
+    "description": "Frozen COCOTree paper protocol. Scores agreement with the released silver reference.",
+    "extra_prediction_policy": "error",
+    "hpq": {
+      "class_aggregation": "unweighted_mean_over_active_labels",
+      "label_matching": "exact_normalized",
+      "leaf_score": "mean_hungarian_instance_iou",
+      "recursive_grouping": "children_by_exact_label"
+    },
+    "hpq_excluded_normalized_labels": [],
+    "hpq_match_threshold": 0.5,
+    "hpq_others_policy": "keep_top_bucket_promote_direct_children",
+    "instance_parent_policy": "derive_first_positive_semantic_ancestor_max_iou",
+    "invalid_prediction_policy": "error",
+    "label_similarity": {
+      "backend": "sentence_transformer_cosine",
+      "clip_max": 1.0,
+      "clip_min": 0.0,
+      "exact_normalized_match_is_one": true,
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "normalize_embeddings": true,
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "template": "visual segmentation label: {label}"
+    },
+    "mask_iou_threshold": 0.5,
+    "matching": {
+      "assignment": "global_hungarian_max_iou",
+      "below_threshold_assignment": "one_fp_and_one_fn",
+      "tie_policy": "stable_input_order",
+      "unit": "instance_mask_node"
+    },
+    "missing_prediction_policy": "empty",
+    "otq": {
+      "bq": "matched_skeleton_pairwise_lca_accuracy",
+      "lq": "mean_tp_label_similarity",
+      "mean_nq": "mean_tp_mask_iou_times_label_similarity",
+      "mq": "mean_tp_mask_iou",
+      "otq": "tq_times_mean_nq",
+      "recovery": "tp_over_tp_plus_half_fp_plus_half_fn",
+      "tq": "bq_times_recovery"
+    },
+    "otq_excluded_normalized_labels": [
+      "others"
+    ],
+    "protocol_id": "paper_v1",
+    "schema": "cocotree_metric_protocol_v1",
+    "synthetic_instance_root": "ROOT",
+    "synthetic_semantic_root": "ROOT"
+  },
+  "protocol_file": "/tmp/cocotree_benchmark_release_final_20260728_v2/configs/paper_v1.json",
+  "protocol_file_sha256": "a2872e44b20fa5e67a32cb93de14cfb818b602aeeaf0b7b459f5d7af6d54f982",
+  "protocol_id": "paper_v1",
+  "protocol_sha256": "a48aa5874b38a085df149b689bd5adfc62c5df60965a22e7ca003ca71a29bc45",
+  "python": "3.12.12 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 20:16:04) [GCC 11.2.0]",
+  "schema": "cocotree_benchmark_run_manifest_v1",
+  "split_manifest": "/tmp/cocotree_benchmark_release_final_20260728_v2/splits/cocotree_1k_v1.jsonl",
+  "split_manifest_sha256": "49cc2f0ab1c54a01a02be27e48987fde7487946bc49b5069f10ad600b27466ef"
+}

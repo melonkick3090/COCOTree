@@ -1,0 +1,28 @@
+{
+  "schema": "cocotree_prediction_v1",
+  "image_id": 1,
+  "nodes": [
+    {
+      "instance_id": "gt_car_1",
+      "semantic_id": "gt_car",
+      "label": "car",
+      "parent_instance_id": "ROOT",
+      "parent_semantic_id": "ROOT",
+      "segmentation": {
+        "size": [4, 4],
+        "counts": [0, 8, 8]
+      }
+    },
+    {
+      "instance_id": "gt_wheel_1",
+      "semantic_id": "gt_wheel",
+      "label": "wheel",
+      "parent_instance_id": "gt_car_1",
+      "parent_semantic_id": "gt_car",
+      "segmentation": {
+        "size": [4, 4],
+        "counts": [2, 2, 12]
+      }
+    }
+  ]
+}

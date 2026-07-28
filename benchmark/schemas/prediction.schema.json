@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/melonkick3090/COCOTree/benchmark/schemas/prediction.schema.json",
+  "title": "COCOTree mask-instance tree prediction",
+  "type": "object",
+  "required": ["schema", "image_id", "nodes"],
+  "properties": {
+    "schema": {"const": "cocotree_prediction_v1"},
+    "image_id": {"oneOf": [{"type": "integer"}, {"type": "string", "pattern": "^[0-9]+$"}]},
+    "method": {"type": "object"},
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "instance_id",
+          "semantic_id",
+          "label",
+          "parent_instance_id",
+          "parent_semantic_id",
+          "segmentation"
+        ],
+        "properties": {
+          "instance_id": {"type": "string", "minLength": 1},
+          "semantic_id": {"type": "string", "minLength": 1},
+          "label": {"type": "string", "minLength": 1},
+          "parent_instance_id": {"type": "string", "minLength": 1},
+          "parent_semantic_id": {"type": "string", "minLength": 1},
+          "segmentation": {
+            "type": "object",
+            "required": ["size", "counts"],
+            "properties": {
+              "size": {
+                "type": "array",
+                "prefixItems": [
+                  {"type": "integer", "minimum": 1},
+                  {"type": "integer", "minimum": 1}
+                ],
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "counts": {
+                "oneOf": [
+                  {"type": "string", "minLength": 1},
+                  {
+                    "type": "array",
+                    "items": {"type": "integer", "minimum": 0},
+                    "minItems": 1
+                  }
+                ]
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
+

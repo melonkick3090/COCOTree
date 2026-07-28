@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cocotree-benchmark"
+version = "0.1.0"
+description = "Reproducible OTQ and HPQ evaluation for COCOTree predictions"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+license = {text = "MIT"}
+authors = [{name = "COCOTree authors"}]
+dependencies = [
+  "numpy==1.26.4",
+  "scipy==1.16.3",
+  "pycocotools==2.0.11",
+]
+
+[project.optional-dependencies]
+paper = [
+  "sentence-transformers==5.4.1",
+]
+test = [
+  "pytest==8.4.1",
+]
+
+[project.scripts]
+cocotree-benchmark = "cocotree_benchmark.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["cocotree_benchmark*"]
+
+[tool.setuptools.package-data]
+cocotree_benchmark = ["data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = [
+  "paper: requires the pinned sentence-transformer paper backend",
+]
